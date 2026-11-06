@@ -1,0 +1,3 @@
+FROM hannah-iso-builder:26.04
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    xvfb x11-apps xdotool && rm -rf /var/lib/apt/lists/*

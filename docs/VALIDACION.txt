@@ -1,0 +1,37 @@
+VALIDACION DE LA EDICION HD CORREGIDA
+
+Diagnostico confirmado:
+Los iconos de la HD mezclaban RGB generado por IA con el canal alfa del
+original. La comparacion de Configuracion e Internet muestra el recorte
+incorrecto. Se regeneraron 12690 imagenes desde RGBA original y los alias.
+2244 variantes antiguas de estado/indicadores se retiraron para heredar
+simbolos actuales de Breeze con adaptacion al esquema de color.
+
+Pruebas de integracion:
+- Arranque de escritorio Live desde ISO mediante BIOS y UEFI en QEMU/KVM.
+- Dolphin, Konsole y Configuracion abiertos mediante kioclient y sus archivos
+  .desktop, usando el bus y el entorno de la sesion real de Plasma.
+- Permanencia de los tres procesos durante varios minutos.
+- Apertura del instalador Calamares desde su lanzador.
+- Sesion Wayland y QT_QUICK_BACKEND=software importado en systemd de usuario.
+- Dispositivo QEMU Virtio MultiTouch detectado por el kernel y KWin.
+- Toque virtual abre el menu; tocar el campo de busqueda muestra el teclado
+  Plasma. Propiedad D-Bus VirtualKeyboard.visible=true y captura guardada.
+- No se encontraron volcados de fallos en la sesion probada.
+- Verificacion de paquetes principales sin modificaciones de sus binarios.
+
+La ISO HD anterior tambien abrio aplicaciones en la maquina virtual.
+No se reprodujo el cierre experimentado en el PC del usuario, por lo que
+los cambios de Breeze, renderizado QtQuick por software y envoltura D-Bus
+son medidas de compatibilidad, no una causa de fallo demostrada.
+
+Limites: no se probo el PC fisico, una pantalla tactil fisica, Secure Boot
+en firmware real ni una instalacion completa a disco.
+
+Capturas y registros se conservan en este directorio. Las pruebas de
+interaccion usan una consola de depuracion activada solo al editar la
+entrada GRUB de prueba; la ISO distribuida no activa esa consola.
+
+Referencias de configuracion de KWin:
+https://github.com/KDE/kwin/blob/master/src/tabletmodemanager.cpp
+https://github.com/KDE/kwin/blob/master/src/inputmethod.cpp

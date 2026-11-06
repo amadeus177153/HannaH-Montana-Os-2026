@@ -1,0 +1,10 @@
+*.iso
+*.squashfs
+*.deb
+*.part[0-9]*
+__pycache__/
+*.pyc
+dist/
+rootfs/
+original-root/
+verification/
